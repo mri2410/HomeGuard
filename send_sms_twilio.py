@@ -28,12 +28,12 @@ def sendTwilioSMS(sms_body):
 			sms_body = "Visitor spotted: " + sms_body
 			print sms_body
 			message = client.sms.messages.create(body=sms_body,\
-			# Cell number, Twilio Number
-			to = "+15712652653", from_= "+15054046300")
+				# Cell number, Twilio Number
+				to = "+15712652653", from_= "+15054046300")
 			print message.sid
 
-	except twilio.TwilioRestException as error:
-		print error
+	except twilio.TwilioRestException as errorSMS:
+		print errorSMS
 
 sendTwilioSMS('Testing message.')
 #lease?! I love you <3",
