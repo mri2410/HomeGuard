@@ -35,8 +35,9 @@ def sendTwilioSMS(sms_body):
 	except twilio.TwilioRestException as errorSMS:
 		print errorSMS
 
-sendTwilioSMS('Testing message.')
-#lease?! I love you <3",
+#sendTwilioSMS('Testing message.')
+
+
 #    to="+15712652653",    # Replace with your phone number
 #    from_="+15054046300") # Replace with your Twilio number
 #print message.sid

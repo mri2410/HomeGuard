@@ -25,10 +25,13 @@ def snapshot():
     #now = datetime.datetime.now()
     #snapshotFile = "visitor-%d:%d:%d-%d:%d:%d.jpg" % (now.year, now.month, now.day, now.hour, now.minute, now.second)
     
+    print "**************Taking picture**************"
+
     # Creating the terminal command and executing it
     snapshotCMDCommand = "fswebcam " + GIT_BASE_DIRECTORY + snapshotFile
     snapshotReturnCode = call(snapshotCMDCommand, shell = True)
-    
+
+    return snapshotFile    
     # Debugging 
     #print '\nTaking snapshot\n', snapshotCMDCommand
     #print  '\n', snapshotReturnCode
@@ -45,8 +48,8 @@ def uploadFileToGit():
     
     print "Git stuff return code is ", gitReturnCode
  
-    sleep(3)
 
-# Calling functions 
-snapshot()
-uploadFileToGit()
+# Testing
+#s = snapshot()
+#print s
+#uploadFileToGit()

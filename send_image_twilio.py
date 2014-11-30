@@ -34,8 +34,9 @@ def sendTwilioImage(image_url):
 	except twilio.TwilioRestException as errorImage:
 		print errorImage
 
-sendTwilioImage('https://github.com/mri2410/HomeGuard/blob/master/snapshots/visitor_8:51:38_11:26:2014.jpg')
-#lease?! I love you <3",
+#sendTwilioImage('https://github.com/mri2410/HomeGuard/blob/master/snapshots/visitor_8:51:38_11:26:2014.jpg')
+
+
 #    to="+15712652653",    # Replace with your phone number
 #    from_="+15054046300") # Replace with your Twilio number
 #print message.sid
