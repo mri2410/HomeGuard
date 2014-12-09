@@ -2,7 +2,7 @@ HomeGuard
 =========
 
 ECE 4564: Raspberry Pi Project
-To run the program, first open a terminal, create a directory and clone the directory in your local machine: $ git clone https://github.com/raiarun/HomeGuard
+To run the program, first open a terminal, create a directory and clone the directory in your local machine: $ git clone https://github.com/mri2410/HomeGuard
 
 open another terminal, cd into HomeGuard, run $ python publisher.py
 
