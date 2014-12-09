@@ -31,10 +31,10 @@ from send_sms_twilio import sendTwilioSMS
 from send_image_twilio import sendTwilioImage
 
 def getCredentials():
-	HOST =  '127.0.0.1' #'172.31.174.47';
-	VIRTUAL_HOST ="mycomputer";
-	NAME = 'arun';
-	PASS = 'rai'#"1";
+	HOST =  '172.31.174.47';
+	VIRTUAL_HOST ='mycomputer';
+	NAME = 'a';
+	PASS = '1';
 	return HOST, VIRTUAL_HOST, NAME, PASS
 
 class HostInformation:
