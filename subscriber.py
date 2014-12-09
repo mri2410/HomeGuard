@@ -30,6 +30,12 @@ from webcam_pi import uploadFileToGit
 from send_sms_twilio import sendTwilioSMS
 from send_image_twilio import sendTwilioImage
 
+def getCredentials():
+	HOST =  '127.0.0.1' #'172.31.174.47';
+	VIRTUAL_HOST ="mycomputer";
+	NAME = 'arun';
+	PASS = 'rai'#"1";
+	return HOST, VIRTUAL_HOST, NAME, PASS
 
 class HostInformation:
 	def __init__(self):
@@ -174,10 +180,11 @@ def main():
 		message = json.loads(message)
 		messageHandler(info, message)
 		
+	HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
 	""" Connect to the message broker """
-	MessageBroker = pika.BlockingConnection(pika.ConnectionParameters(host = '172.31.174.47',
-											virtual_host="mycomputer",
-											credentials=pika.PlainCredentials("a","1",True)))
+	MessageBroker = pika.BlockingConnection(pika.ConnectionParameters(host = HOST,
+											virtual_host = VIRTUAL_HOST,
+											credentials=pika.PlainCredentials(NAME, PASS,True)))
 	print "Succesfully connected to the publisher."
 
 	""" Setup the exchange """
