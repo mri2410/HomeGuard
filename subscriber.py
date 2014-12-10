@@ -5,7 +5,7 @@ Team: Immortal
 Title: HomeGuard - Home Visitors Detection and Alert System
 Filename: subscriber.py
 Members: Arun Rai, Mohammad Islam, and Yihan Pang
-Date: 11/27/2014
+Created on 11/27/2014
 
 ---------------------------------------------------------------------
 Description:
@@ -21,14 +21,14 @@ import pika
 import json
 import signal
 from smsAndEmailToHost import sendEmailToHost
+from smsAndEmailToHost import sendSMS
 from playSound import play
 import time
 
 # User defined modules
 from webcam_pi import snapshot
 from webcam_pi import uploadFileToGit
-from send_sms_twilio import sendTwilioSMS
-from send_image_twilio import sendTwilioImage
+
 
 def getCredentials():
 	HOST =  '172.31.174.47';
@@ -133,15 +133,21 @@ def messageHandler(info, message):
 
 		elif info.messageInSms():
 			print ' send messageg via sms'
+			sendSMS(message['body'], 'VisitorMessage')
 		elif info.messageInBoth():
 			print 'send message via sms and email'
-		
+			sendEmailToHost(info.getHost(), info.getPort(), info.getSenderEmail(), 
+							info.getSenderEmailPass(), 
+							info.getReceiverEmail(), message['body'],
+							'Message from visitor')
+			""" ---- Message body and message type ---- """
+			sendSMS(message['body'], 'VisitorMessage')
 		# Sends a sms containing the visitor's message which will be sent to the host
-		sendTwilioSMS(message['body'])
+		
 		
 		print 'TWICE : ', info.getReceiverEmail()
 
-		play('ThankYou.mp3');
+		# play('ThankYou.mp3');
 		
 	elif message['type'] == 'HostInfo':
 		""" Receive host user information """
@@ -169,7 +175,7 @@ def messageHandler(info, message):
 		
 		githubLink = 'https://github.com/mri2410/HomeGuard/blob/master/snapshots/'
 		# Sends a sms containing the visitor's picture to the host's phone/email
-		sendTwilioImage(githubLink + image)
+		sendSMS(githubLink + image, 'VisitorImage')
 			
 def main():
 	info = HostInformation();
