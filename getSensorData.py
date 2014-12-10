@@ -1,5 +1,5 @@
-import time
 #author Yihan Pang 
+import time
 import pika
 import json
 import signal
@@ -16,6 +16,7 @@ GPIO.setup(ECHO,GPIO.IN)
 signal.signal(signal.SIGUSR1,restart)
 waitstart=time.time()
 
+""" Setup host credintial information """
 def getCredentials():
 	HOST =  '172.31.174.47';
 	VIRTUAL_HOST ='mycomputer';
