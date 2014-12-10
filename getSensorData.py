@@ -16,6 +16,13 @@ GPIO.setup(ECHO,GPIO.IN)
 signal.signal(signal.SIGUSR1,restart)
 waitstart=time.time()
 
+def getCredentials():
+	HOST =  '172.31.174.47';
+	VIRTUAL_HOST ='mycomputer';
+	NAME = 'a';
+	PASS = '1';
+	return HOST, VIRTUAL_HOST, NAME, PASS
+	
 def getSensorData(object):
  	try:
 		pause=0
@@ -50,9 +57,10 @@ def getSensorData(object):
 
 			if object.getMessageSignal() == True:
 				message = json.dumps(object.getMessage(), indent = 2)
-				MessageBroker = pika.BlockingConnection(pika.ConnectionParameters(host = '127.0.0.1',
-											virtual_host="mycomputer",
-											credentials=pika.PlainCredentials("arun","rai",True)))
+				HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
+				MessageBroker = pika.BlockingConnection(pika.ConnectionParameters(host = HOST,
+											virtual_host = VIRTUAL_HOST,
+											credentials=pika.PlainCredentials(NAME, PASS,True)))
 				""" Setup the exchange """
 				channel = MessageBroker.channel()
 				channel.exchange_declare(exchange="HomeGuard",type="fanout")
