@@ -33,4 +33,3 @@ def sendSMS(message, type):
 		sendTwilioSMS(message)
 	elif type == 'VisitorImage':
 		sendTwilioImage(message);
-	print('work to be done')
