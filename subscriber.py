@@ -129,7 +129,7 @@ def messageHandler(info, message):
 							info.getSenderEmailPass(), 
 							info.getReceiverEmail(), message['body'],
 							'Message from visitor')
-			print info.getReceiverEmail()
+			#print info.getReceiverEmail()
 
 		elif info.messageInSms():
 			print ' send messageg via sms'
@@ -145,7 +145,7 @@ def messageHandler(info, message):
 		# Sends a sms containing the visitor's message which will be sent to the host
 		
 		
-		print 'TWICE : ', info.getReceiverEmail()
+		#print 'TWICE : ', info.getReceiverEmail()
 
 		# play('ThankYou.mp3');
 		
