@@ -1,7 +1,12 @@
 
+# Created by Arun Rai
+# 11/25/2014
+
 #!/usr/bin/python
 import smtplib
 from email.mime.text import MIMEText as text
+from send_sms_twilio import sendTwilioSMS
+from send_image_twilio import sendTwilioImage
 
 """ Send message to the host via email """
 def sendEmailToHost(host, port, sender, password, receiver, message = 'No message content.', subject = 'No subject'):
@@ -23,5 +28,8 @@ def sendEmailToHost(host, port, sender, password, receiver, message = 'No messag
 	except Exception:
 		print 'Unable to connect to the host. \nCheck the host address.'
 
-def sendSMS(receiver, id, password, message):
-	print('work to be done')
+def sendSMS(message, type):
+	if type == 'VisitorMessage':
+		sendTwilioSMS(message)
+	elif type == 'VisitorImage':
+		sendTwilioImage(message);
