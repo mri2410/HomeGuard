@@ -9,22 +9,26 @@ import datetime
 
 # Global variables
 GIT_BASE_DIRECTORY = "./snapshots/"
-
+counter = 1
 # Function that triggers the webcam, takes a picture
 # and names the file with date and timestamp
 def snapshot():
     global GIT_BASE_DIRECTORY
-    
+    global  counter
     # Getting the year, month, day, hour, minute, and second
     currentTime = datetime.datetime.now()
+    
     # Creating filename with the date and timestamp
-    snapshotFile = "visitor_%d:%d:%d_%d:%d:%d.jpg" % \
+    snapshotFile = str(counter)+" visitor_%d:%d:%d_%d:%d:%d.jpg" % \
                    (currentTime.hour, currentTime.minute,\
     		    currentTime.second, currentTime.month,\
     		    currentTime.day, currentTime.year)
-    #now = datetime.datetime.now()
-    #snapshotFile = "visitor-%d:%d:%d-%d:%d:%d.jpg" % (now.year, now.month, now.day, now.hour, now.minute, now.second)
     
+    #snapshotFile = '1.jpg'
+    #now = datetime.datetime.now()
+    #snapshotFile = str(counter) + " visitor_%d:%d:%d_%d:%d:%d.jpg" % (now.year, now.month, now.day, now.hour, now.minute, now.second)
+    counter += 1
+
     print "**************Taking picture**************"
 
     # Creating the terminal command and executing it
@@ -32,9 +36,6 @@ def snapshot():
     snapshotReturnCode = call(snapshotCMDCommand, shell = True)
 
     return snapshotFile    
-    # Debugging 
-    #print '\nTaking snapshot\n', snapshotCMDCommand
-    #print  '\n', snapshotReturnCode
     
 
 # Uploading the snapshot to the Git account
