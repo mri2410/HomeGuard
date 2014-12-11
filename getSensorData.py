@@ -18,7 +18,7 @@ global waitstart
 
 """ Setup host credintial information """
 def getCredentials():
-	HOST =  '172.31.174.47';
+	HOST =  '172.31.0.115';
 	VIRTUAL_HOST ='mycomputer';
 	NAME = 'a';
 	PASS = '1';
@@ -70,7 +70,7 @@ def getSensorData(object):
 				""" Send the message """
 				channel.basic_publish(exchange="HomeGuard",
 							routing_key="Detection", body= message)
-
+				print message
 				""" Close the connection """ 
 				MessageBroker.close()
 				object.setMessageSignal(False)

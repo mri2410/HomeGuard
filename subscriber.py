@@ -147,7 +147,7 @@ def messageHandler(info, message):
 		
 		#print 'TWICE : ', info.getReceiverEmail()
 
-		# play('ThankYou.mp3');
+		play('ThankYou.mp3');
 		
 	elif message['type'] == 'HostInfo':
 		""" Receive host user information """
