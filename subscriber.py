@@ -129,6 +129,7 @@ def messageHandler(info, message):
 							info.getSenderEmailPass(), 
 							info.getReceiverEmail(), message['body'],
 							'Message from visitor')
+
 			#print info.getReceiverEmail()
 
 		elif info.messageInSms():
@@ -175,8 +176,30 @@ def messageHandler(info, message):
 		
 		githubLink = 'https://github.com/mri2410/HomeGuard/blob/master/snapshots/'
 		# Sends a sms containing the visitor's picture to the host's phone/email
-		sendSMS(githubLink + image, 'VisitorImage')
-			
+		#sendSMS(githubLink + image, 'VisitorImage')
+		# Sends email to message
+		 """ Receive the visitor's message """
+                if info.messageInEmail():
+                        print 'send image limk via email'
+                        sendEmailToHost(info.getHost(), info.getPort(), info.getSenderEmail(),
+                                                        info.getSenderEmailPass(),
+                                                        info.getReceiverEmail(), (githubLink + image),
+                                                        'VisitorImage')
+
+                        #print info.getReceiverEmail()
+
+                elif info.messageInSms():
+                        print ' send image link  via sms'
+                        sendSMS(githubLink + image, 'VisitorImage')
+                elif info.messageInBoth():
+                        print 'send image link via sms and email'
+                        sendEmailToHost(info.getHost(), info.getPort(), info.getSenderEmail(),
+                                                        info.getSenderEmailPass(),
+                                                        info.getReceiverEmail(), message['body'],
+                                                        'VisitorImage')
+                        """ ---- Message body and message type ---- """
+                        sendSMS(githubLink + image, 'VisitorImage')
+
 def main():
 	info = HostInformation();
 	# print info.getHost(), " ", info.getPort(), " ", info.getSenderEmail()

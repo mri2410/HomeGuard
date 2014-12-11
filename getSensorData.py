@@ -31,7 +31,7 @@ def getSensorData(object):
 		while object.getLoopState():
 			#reset the sensor
 			GPIO.output(TRIG, False)
-			time.sleep(2) 
+			time.sleep(10) 
 			#trigger the sensor
 			GPIO.output(TRIG, True)
 			time.sleep(0.00001)
@@ -52,11 +52,13 @@ def getSensorData(object):
 				message['type']="trigger"
 				object.setMessage(message)
 				object.setMessageSignal(True)
+			#if the distance is greater than 1 meter it means the visitor is walking away retrigger the sensor
 			elif pause==1 and distance>100:
 				pause=0
-			elif time.time()-waitstart>18:
+			#if the person standing still for more than 20 second , retrigger the sensor
+			elif time.time()-waitstart>20:
 				pause=0				
-
+			#send the message to message queue
 			if object.getMessageSignal() == True:
 				message = json.dumps(object.getMessage(), indent = 2)
 				HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
@@ -76,6 +78,7 @@ def getSensorData(object):
 				object.setMessageSignal(False)
 			
 	except KeyboardInterrupt: 
+		#clean GPIO pins
 		GPIO.cleanup()
 	
 		
