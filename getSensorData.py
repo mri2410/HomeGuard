@@ -13,8 +13,8 @@ ECHO = 24
 #assign pins
 GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
-signal.signal(signal.SIGUSR1,restart)
-waitstart=time.time()
+
+global waitstart
 
 """ Setup host credintial information """
 def getCredentials():
@@ -25,6 +25,7 @@ def getCredentials():
 	return HOST, VIRTUAL_HOST, NAME, PASS
 	
 def getSensorData(object):
+	waitstart=time.time()
  	try:
 		pause=0
 		while object.getLoopState():
@@ -44,16 +45,16 @@ def getSensorData(object):
 			distance = pulse_duration * 17150
 			distance = round(distance, 2)
 			#if visitor isn't previous triggered 
-			if pause==0 and distance>2 and distance<380:
+			if pause==0 and distance>2 and distance<100:
 				pause=1 
 				waitstart=time.time()
 				message = {}
 				message['type']="trigger"
 				object.setMessage(message)
 				object.setMessageSignal(True)
-			elif pause==1 and distance>380:
+			elif pause==1 and distance>100:
 				pause=0
-			elif time.time()-waitstart>300:
+			elif time.time()-waitstart>18:
 				pause=0				
 
 			if object.getMessageSignal() == True:
