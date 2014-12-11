@@ -5,7 +5,7 @@ Qt version 4.8 or later (not 5.0 or later though) is required.
 To install Qt in Ubuntu, run the command:
 $ sudo apt-get install build-essentials cmake qt4-qmake qt4-dev-tools 
 
-Optional: an Qt IDE, qtcreator can be installed by running command,
+Optional: a Qt IDE, qtcreator can be installed by running command,
 $ sudo apt-get install qtcreator
 
 To compile the program, cd into the directory and,
