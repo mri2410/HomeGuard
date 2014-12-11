@@ -31,7 +31,7 @@ def getSensorData(object):
 		while object.getLoopState():
 			#reset the sensor
 			GPIO.output(TRIG, False)
-			time.sleep(2) 
+			time.sleep(10) 
 			#trigger the sensor
 			GPIO.output(TRIG, True)
 			time.sleep(0.00001)
@@ -56,7 +56,7 @@ def getSensorData(object):
 			elif pause==1 and distance>100:
 				pause=0
 			#if the person standing still for more than 20 second , retrigger the sensor
-			elif time.time()-waitstart>18:
+			elif time.time()-waitstart>20:
 				pause=0				
 			#send the message to message queue
 			if object.getMessageSignal() == True:
