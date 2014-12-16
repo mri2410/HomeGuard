@@ -1,4 +1,11 @@
 #author Yihan Pang 
+#this code is the code that triggers the sensor to detect at a speciic range 
+#in the demo it is set to detect person within 1 meter of the sensor and it will retake picture every 20 sec if the person continue standing infront the detection range
+#the sensor will comunicate with subsciber to tell appriate message that triggers the camera and other fellow code. 
+#do not run this program 
+#run sudo python publisher.py
+#this program contains 2 function getCredentials() and getSensorData(object)
+import RPi.GPIO as GPIO
 import time
 import pika
 import json
