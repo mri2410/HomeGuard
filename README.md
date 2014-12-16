@@ -1,7 +1,6 @@
-HomeGuard
-Visitor Detection and Alert System
-Team Immortal
 ECE 4564 - Network Application Design
+Team Immortal, Final Design Project
+Visitor Detection and Alert System
 =========
 
 Project Overview
@@ -15,3 +14,5 @@ One HC-SRQ4 sensor
 One Logitech webcam
 Two Wi-Fy dongles
 
+Hardware Setup
+=====================
