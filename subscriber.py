@@ -29,10 +29,10 @@ from webcam_pi import snapshot
 from webcam_pi import uploadFileToGit
 
 def getCredentials():
-	HOST =  '172.31.0.115';
-	VIRTUAL_HOST ='mycomputer';
-	NAME = 'a';
-	PASS = '1';
+	HOST =  'netapps.ece.vt.edu';
+	VIRTUAL_HOST ='/2014/fall/immortal';
+	NAME = 'immortal';
+	PASS = 'N3verEnding)St0ry101';
 	return HOST, VIRTUAL_HOST, NAME, PASS
 
 class HostInformation:
@@ -120,6 +120,7 @@ class stopChannel:
 
 """ Send signal to sound player function to play the appropriate recorded sound."""
 def playSoundSignal(message):
+	HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
 	MessageBroker = pika.BlockingConnection(pika.ConnectionParameters(host = HOST,
 								virtual_host = VIRTUAL_HOST,
 								credentials=pika.PlainCredentials(NAME, PASS,True)))
@@ -219,6 +220,7 @@ def main():
 		""" load message """
 		message = json.loads(message)
 		messageHandler(info, message)
+		playSoundSignal(message)
 		
 	HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
 	""" Connect to the message broker """
@@ -240,7 +242,7 @@ def main():
 
 	""" Setup the callback for when a subscribed message is received """
 	ch.basic_consume(messageFromBroker,  queue = MyQueue.method.queue, no_ack=True)
-	print "Ready to receive message ........... "
+	print "Ready to receive message (main subscriber application)........... "
 	
 	signal_num = signal.SIGINT
 	try:
@@ -258,3 +260,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
