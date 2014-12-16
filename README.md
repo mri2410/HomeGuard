@@ -1,19 +1,16 @@
 HomeGuard
+Visitor Detection and Alert System
+Team Immortal
+ECE 4564 - Network Application Design
 =========
 
-ECE 4564: Raspberry Pi Project
-To run the program, first open a terminal, create a directory and clone the directory in your local machine: $ git clone https://github.com/mri2410/HomeGuard
+Project Overview
 
-First user need to set their own email address 
+The Home Visitors Detection and Alert System is designed to detect visitors coming to a house, take their pictures, and send the host (the homeowner) an email message with the pictures. The system also allows the visitor to leave a text message or an email to the host by using a keyboard and a screen monitor that are installed at the entrance door. The goal of this system design is that, while being away from the home, the host can still keep track of his visitors.  When the host is away from the home, there are chances of property theft and/or destruction. This device, if installed properly, can provide the user with valuable information of the suspects. The system automatically triggers the camera to take the pictures of the visitors when the visitors are active in front of the door longer than three seconds and sends them to the host. Then the host can take action, if necessary.
 
-This can be done by cd into the HostInformation Folder and run the excutable HostInformation. Select the appropriate option and enter the desired information
+Hardware Requirements
+Two Raspberyy Pi
+One HC-SRQ4 sensor
+One Logitech webcam
+Two Wi-Fy dongles
 
-open the first terminal, cd into the directory run python playSound.py
-open another terminal, cd into HomeGuard, run $ python publisher.py
-
-open next terminal, cd into HomeInformation, run $ qmake $ make run the executable. choose email and enter your email id and phone number. Hit OK.
-
-Note: the phone number must be registed to twillo.
-cd into VisitorMessageBox, run $ qmake $ make run the executable. type a test message and hit OK. (Qt4 should be installed before these projects are run) Check you email, a message will be in your email inbox.
-
-When finished, close the GUIs, and go back to terminal that you run the python file and enter Ctrl + c to exit the program.
