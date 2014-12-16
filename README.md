@@ -4,6 +4,11 @@ HomeGuard
 ECE 4564: Raspberry Pi Project
 To run the program, first open a terminal, create a directory and clone the directory in your local machine: $ git clone https://github.com/mri2410/HomeGuard
 
+First user need to set their own email address 
+
+This can be done by cd into the HostInformation Folder and run the excutable HostInformation. Select the appropriate option and enter the desired information
+
+open the first terminal, cd into the directory run python playSound.py
 open another terminal, cd into HomeGuard, run $ python publisher.py
 
 open next terminal, cd into HomeInformation, run $ qmake $ make run the executable. choose email and enter your email id and phone number. Hit OK.
