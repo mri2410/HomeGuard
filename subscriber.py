@@ -22,19 +22,17 @@ import json
 import signal
 from smsAndEmailToHost import sendEmailToHost
 from smsAndEmailToHost import sendSMS
-from playSound import play
 import time
 
 # User defined modules
 from webcam_pi import snapshot
 from webcam_pi import uploadFileToGit
 
-
 def getCredentials():
-	HOST =  '172.31.0.115';
-	VIRTUAL_HOST ='mycomputer';
-	NAME = 'a';
-	PASS = '1';
+	HOST =  'netapps.ece.vt.edu';
+	VIRTUAL_HOST ='/2014/fall/immortal';
+	NAME = 'immortal';
+	PASS = 'N3verEnding)St0ry101';
 	return HOST, VIRTUAL_HOST, NAME, PASS
 
 class HostInformation:
@@ -119,7 +117,24 @@ class stopChannel:
     def stop_stats_client(self, signal=None, frame=None):
 		""" stop the blocking consume operation """ 
 		self.__channel.stop_consuming()
-		
+
+""" Send signal to sound player function to play the appropriate recorded sound."""
+def playSoundSignal(message):
+	HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
+	MessageBroker = pika.BlockingConnection(pika.ConnectionParameters(host = HOST,
+								virtual_host = VIRTUAL_HOST,
+								credentials=pika.PlainCredentials(NAME, PASS,True)))
+	""" Setup the exchange """
+	channel = MessageBroker.channel()
+	channel.exchange_declare(exchange="Play",type="fanout")
+
+	""" Send the message """
+	channel.basic_publish(exchange="Play",
+				routing_key="Sound", body= message['type'])
+	print message
+	""" Close the connection """ 
+	MessageBroker.close()
+				
 def messageHandler(info, message):
 	if message['type'] == 'VisitorMessage':
 		""" Receive the visitor's message """
@@ -145,10 +160,7 @@ def messageHandler(info, message):
 			sendSMS(message['body'], 'VisitorMessage')
 		# Sends a sms containing the visitor's message which will be sent to the host
 		
-		
 		#print 'TWICE : ', info.getReceiverEmail()
-
-		# play('ThankYou.mp3');
 		
 	elif message['type'] == 'HostInfo':
 		""" Receive host user information """
@@ -178,7 +190,7 @@ def messageHandler(info, message):
 		# Sends a sms containing the visitor's picture to the host's phone/email
 		#sendSMS(githubLink + image, 'VisitorImage')
 		# Sends email to message
-		 """ Receive the visitor's message """
+		""" Receive the visitor's message """
                 if info.messageInEmail():
                         print 'send image limk via email'
                         sendEmailToHost(info.getHost(), info.getPort(), info.getSenderEmail(),
@@ -208,6 +220,7 @@ def main():
 		""" load message """
 		message = json.loads(message)
 		messageHandler(info, message)
+		playSoundSignal(message)
 		
 	HOST, VIRTUAL_HOST, NAME, PASS = getCredentials();
 	""" Connect to the message broker """
@@ -229,7 +242,7 @@ def main():
 
 	""" Setup the callback for when a subscribed message is received """
 	ch.basic_consume(messageFromBroker,  queue = MyQueue.method.queue, no_ack=True)
-	print "Ready to receive message ........... "
+	print "Ready to receive message (main subscriber application)........... "
 	
 	signal_num = signal.SIGINT
 	try:
@@ -247,3 +260,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+

@@ -4,8 +4,9 @@ import pika
 import json
 import signal
 import os
-import RPi.GPIO as GPIO
 import time
+
+"""
 GPIO.setmode(GPIO.BCM)
 #initial setup
 TRIG = 23
@@ -15,13 +16,13 @@ GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
 
 global waitstart
-
+"""
 """ Setup host credintial information """
 def getCredentials():
-	HOST =  '172.31.174.47';
-	VIRTUAL_HOST ='mycomputer';
-	NAME = 'a';
-	PASS = '1';
+	HOST =  'netapps.ece.vt.edu';
+	VIRTUAL_HOST ='/2014/fall/immortal';
+	NAME = 'immortal';
+	PASS = 'N3verEnding)St0ry101';
 	return HOST, VIRTUAL_HOST, NAME, PASS
 	
 def getSensorData(object):
@@ -29,6 +30,7 @@ def getSensorData(object):
  	try:
 		pause=0
 		while object.getLoopState():
+			"""
 			#reset the sensor
 			GPIO.output(TRIG, False)
 			time.sleep(10) 
@@ -58,6 +60,7 @@ def getSensorData(object):
 			#if the person standing still for more than 20 second , retrigger the sensor
 			elif time.time()-waitstart>20:
 				pause=0				
+			"""
 			#send the message to message queue
 			if object.getMessageSignal() == True:
 				message = json.dumps(object.getMessage(), indent = 2)
@@ -72,7 +75,7 @@ def getSensorData(object):
 				""" Send the message """
 				channel.basic_publish(exchange="HomeGuard",
 							routing_key="Detection", body= message)
-
+				print message
 				""" Close the connection """ 
 				MessageBroker.close()
 				object.setMessageSignal(False)
