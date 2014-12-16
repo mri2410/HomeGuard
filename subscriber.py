@@ -65,7 +65,7 @@ class HostInformation:
 		self.receiverEmail = email;
 		
 	""" Set both email and phone nubmer """
-	def setBoth(self, email, phone):
+	def setBoth(self, phone, email):
 		self.receiverEmail = email;
 		self.receiverNumber = phone;
 		self.both = True;
@@ -166,14 +166,15 @@ def messageHandler(info, message):
 		""" Receive host user information """
 		if message['media'] == 'emailOnly':
 			info.setEmail(message['body']['email'])
-			print 'email and sms'
+			print 'email only'
 		elif message['media'] == 'smsOnly':
 			info.setPhoneNumber(message['body']['number'])
 			print 'sms only'
 		elif message['media'] == 'both':
-			info.setPhoneNumber(message['body']['number'])
-			info.setEmail(message['body']['email'])
-			print 'email only'
+			#info.setPhoneNumber(message['body']['number'])
+			#info.setEmail(message['body']['email'])
+			infog.setBoth(message['body']['number'],message['body']['email']);
+			print 'both'
 		print "HOST INFO CHECK\n"
 
 	elif message['type'] == 'trigger':
