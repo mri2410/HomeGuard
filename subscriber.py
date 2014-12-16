@@ -171,9 +171,10 @@ def messageHandler(info, message):
 			info.setPhoneNumber(message['body']['number'])
 			print 'sms only'
 		elif message['media'] == 'both':
+			print "both sms and email"
 			#info.setPhoneNumber(message['body']['number'])
 			#info.setEmail(message['body']['email'])
-			infog.setBoth(message['body']['number'],message['body']['email']);
+			info.setBoth(message['body']['number'],message['body']['email']);
 			print 'both'
 		print "HOST INFO CHECK\n"
 
