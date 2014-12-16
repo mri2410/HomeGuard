@@ -209,7 +209,7 @@ def messageHandler(info, message):
                         print 'send image link via sms and email'
                         sendEmailToHost(info.getHost(), info.getPort(), info.getSenderEmail(),
                                                         info.getSenderEmailPass(),
-                                                        info.getReceiverEmail(), message['body'],
+                                                        info.getReceiverEmail(), (githubLink + image),
                                                         'VisitorImage')
                         """ ---- Message body and message type ---- """
                         sendSMS(githubLink + image, 'VisitorImage')
