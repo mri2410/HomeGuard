@@ -19,7 +19,7 @@ def snapshot():
     currentTime = datetime.datetime.now()
     
     # Creating filename with the date and timestamp
-    snapshotFile = str(counter)+" visitor_%d:%d:%d_%d:%d:%d.jpg" % \
+    snapshotFile = str(counter)+"_visitor_%d:%d:%d_%d:%d:%d.jpg" % \
                    (currentTime.hour, currentTime.minute,\
     		    currentTime.second, currentTime.month,\
     		    currentTime.day, currentTime.year)
@@ -32,7 +32,8 @@ def snapshot():
     print "**************Taking picture**************"
 
     # Creating the terminal command and executing it
-    snapshotCMDCommand = "fswebcam " + GIT_BASE_DIRECTORY + snapshotFile
+    # Resolution is set to 320 x 240 so the timeout error doesn't occur
+    snapshotCMDCommand = "fswebcam  -r 320x240 " + GIT_BASE_DIRECTORY + snapshotFile
     snapshotReturnCode = call(snapshotCMDCommand, shell = True)
 
     return snapshotFile    
