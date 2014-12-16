@@ -16,3 +16,8 @@ Two Wi-Fy dongles
 
 Hardware Setup
 =====================
+
+Software installation instructions
+===================================
+
+
