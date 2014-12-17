@@ -22,6 +22,11 @@ Use Wire or dupont cable to connect the HC-SR04 sensor to one raspberry’s GPIO
 Camera Setup:
 Connect the webcam to a USB port of the other Raspberry Pi
 
+Program Setup
+========================
+
+Please see the file called instruction.txt 
+
 
 
 
