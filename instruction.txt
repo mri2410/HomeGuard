@@ -34,14 +34,6 @@ Instructions for installing RabbitMQ on the system modules:
     sudo rabbitmqctl add_vhost "my_new_vhostname"
     sudo rabbitmqctl set_permissions -p "my_new_vhostname" "name"  ".*" ".*" ".*"
 
-4. In the command prompt/terminal, the user input should be in this format:
-    python pistatsd.py [-h] -b message broker [-p virtual host] [-c login:password] [-k routing key]
-
-Note:
-    - Message broker can be set to: 127.0.0.1 for local machine.
-    - Virtual host must match the "my_new_vhostname" entered during step 3.
-    - Login ID also has to match the “name” in step 3.
-    - Routing key has to be same in both client and server side to get same output.
 
 Next,
 i) Publisher: This application module includes the Raspberry Pi that is connected to the sensor.
