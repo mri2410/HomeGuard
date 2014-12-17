@@ -77,7 +77,17 @@ File Manifest
 <p>webcame_pi.py: triggers the webcam after getting a signal from the publisher pi.</p>
 
 
+Contacts
+========================
+<p>If you want to be informed about sensor:</p>
+    <p> - email pyihan1@vt.edu</p>
+<p>If you want to be informed about webcam:</p>
+     <p>- email mri2410@vt.edu</p>
+<p>If you want to be informed about GUI Interface and network communication :</p>
+<p> - email raiarun52@gmail.com</p>
 
-
-
+Acknowledgement
+========================
+We would like to use this opportunity to thanks Dr. William Plymale and Thaddeus Czauski for approving us to work on this project as our final team project as we learned and enhanced our knowledge on programming network applications. We also like to thank ECE Department of Virginia Tech for generously supporting us with the equipment we need for this project.  In the end, we also thanks the our entire classmates who generously help us on class forum on questions that we encountered in this project. Thanks you all and hope you all have a good winter break. 
+-Yihan Evan and Arun 
 
