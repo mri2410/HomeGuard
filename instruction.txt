@@ -79,10 +79,10 @@ j)  cd into the VisitorMessageBox and follow instructions 6 and 7 above.
 k)  run $ publisher.py in the Pi
 l)  open two terminals on the host machine and follow instructions g-k from Method A
 
-ii) Subscriber.py: 
+ii) Subscriber: 
         -This application module includes the Raspberry Pi that is connected to the camera.
         -This application requires twilio to  be installed on the Pi.
-a)  log into the other Raspberyy Pi using PuTTy or similar applicattion or from a Linux host machin such as Ubuntu.
+a)  log into the other Raspberyy Pi using PuTTy or similar applicattion or from a Linux host machine such as Ubuntu.
 b)  install twilio by running, $ easy_install twilio
 c)  cd into the directory and clone the project.
     $ git clone https://github.com/mri2410/HomeGuard
