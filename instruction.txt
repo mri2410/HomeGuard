@@ -36,64 +36,68 @@ Instructions for installing RabbitMQ on the system modules:
 
 
 Next,
-i) Publisher: This application module includes the Raspberry Pi that is connected to the sensor.
-Instructions for running the application:
-This application requires Qt 4.8 application software to be installed either on Raspberry Pi or 
-the Linux host machine such as Ubuntu.
+i) Publisher: 
+    -This application module includes the Raspberry Pi that is connected to the sensor.
+    -Instructions for running the application:
+    -This application requires Qt 4.8 application software to be installed either on Raspberry Pi or 
+        the Linux host machine such as Ubuntu.
+        
+        
 Method A. By installing Qt on the Raspberry Pi
-Log into the Raspberry Pi using PuTTy, or similar application.
-Follow the instructions to install Qt libraries and compiler from the 
-web link:http://qt-project.org/wiki/RaspberryPi_Beginners_guide
-Make a directory in the pi (example, $ mkdir MyCoolSystem)
-cd into the directory and clone the project.
+a)  Log into the Raspberry Pi using PuTTy, or similar application.
+b)  Follow the instructions to install Qt libraries and compiler from the 
+c)  web link:http://qt-project.org/wiki/RaspberryPi_Beginners_guide
+d)  Make a directory in the pi (example, $ mkdir MyCoolSystem)
+e)  cd into the directory and clone the project.
     $ git clone https://github.com/mri2410/HomeGuard
     Note: git must be installed before cloning the directory.
-    Git installation: $ apt-get install git
-      5)  run $ ifconfig to see the Pi’s IP address, note the IP address - it is listed on the second line of ‘wlan0’
-      6)  cd into the directory, and open the getSensorData.py
-$ nano getSensorData.py
-      7)   Navigate to function setCredentials(), set HOST, VIRTUAL_HOST, NAME, PASS fields, and save the file.
-8) run $ publisher.py
-9) open another terminal and cd into HostInformation
-10) run $ qmake and $ make to generate an executable file.
-11) run $ ./HostInfoSetup to run the application - host can setup the information as necessary by
-following the instructions on the application window.
-12) open another, cd into VisitorMessageBox and follow instruction 10
-13) run $ ./MessageBox to run the application - This will open an application window with a text box 
-where visitors can type their message and send to host by hitting ‘OK’ button.
+        Git installation: $ apt-get install git
+      - run $ ifconfig to see the Pi’s IP address, note the IP address - it is listed on the second line of ‘wlan0’
+      - cd into the directory, and open the getSensorData.py
+            $ nano getSensorData.py
+      - Navigate to function setCredentials(), set HOST, VIRTUAL_HOST, NAME, PASS fields, and save the file.
+f) run $ publisher.py
+g) open another terminal and cd into HostInformation
+h) run $ qmake and $ make to generate an executable file.
+i) run $ ./HostInfoSetup to run the application - host can setup the information as necessary by
+   following the instructions on the application window.
+j) open another, cd into VisitorMessageBox and follow instruction 10
+k) run $ ./MessageBox to run the application - This will open an application window with a text box 
+    where visitors can type their message and send to host by hitting ‘OK’ button.
     
 Method B. By installing Qt on the host machine (Ubuntu):
-install Qt on the host machine: $ sudo apt-get install build-essential cmake gdb qt5-qmake qttools5-dev-tools
-install the fswebcam package:
-$ sudo apt-get install fswebcam
-Follow instruction 1-5 from Method A and obtain the Pi’s wireless IP address.
-open a terminal on Ubuntu and run $ ssh pi@ip_adress to log into the Pi.
-cd into the project directory that is recently cloned. 
-cd into HostInformation
-run $ nano mainwindow.cpp
-Change the IP address in IP_Address with the Pi’s IP address
-cd into the VisitorMessageBox and follow instructions 6 and 7 above.
-run $ publisher.py in the Pi
-open two terminals on the host machine and follow instructions 9-13 from Method B
+a)  install Qt on the host machine: $ sudo apt-get install build-essential cmake gdb qt5-qmake qttools5-dev-tools
+b)  install the fswebcam package:
+c)  $ sudo apt-get install fswebcam
+Follow instruction a-e from Method A and obtain the Pi’s wireless IP address.
+d)  open a terminal on Ubuntu and run $ ssh pi@ip_adress to log into the Pi.
+f)  cd into the project directory that is recently cloned. 
+g)  cd into HostInformation
+h)  run $ nano mainwindow.cpp
+i)  Change the IP address in IP_Address with the Pi’s IP address
+j)  cd into the VisitorMessageBox and follow instructions 6 and 7 above.
+k)  run $ publisher.py in the Pi
+l)  open two terminals on the host machine and follow instructions g-k from Method A
 
-ii) Subscriber.py: This application module includes the Raspberry Pi that is connected to the camera.
-This application requires twilio to  be installed on the Pi.
-log into the other Raspberyy Pi using PuTTy or similar applicattion or from a Linux host machin such as Ubuntu.
-install twilio by running, $ easy_install twilio
-cd into the directory and clone the project.
+ii) Subscriber.py: 
+        -This application module includes the Raspberry Pi that is connected to the camera.
+        -This application requires twilio to  be installed on the Pi.
+a)  log into the other Raspberyy Pi using PuTTy or similar applicattion or from a Linux host machin such as Ubuntu.
+b)  install twilio by running, $ easy_install twilio
+c)  cd into the directory and clone the project.
     $ git clone https://github.com/mri2410/HomeGuard
     Note: git must be installed before cloning the directory.
     Git installation: $ apt-get install git
-      4)  run $ ifconfig to see the Pi’s IP address, note the IP address - it is listed on the second line of ‘wlan0’
+      -  run $ ifconfig to see the Pi’s IP address, note the IP address - it is listed on the second line of ‘wlan0’
 Note: In order for the host user to receive SMS, the host must obtain a twilio account.
-5) run $ nano send_sms_twilio.py
-6) find "to =_______  from =________" .
-Fill in the field with the host’s phone number and the twilio number. Save the file.
-7) run $ nano send_image_twilio.py and follow instruction 6 above.
-8) cd into subscriber.py, and Navigate to function setCredentials() and set HOST, VIRTUAL_HOST, NAME, PASS fields.
-9) open a terminal in the Pi and run $ subscriber.py
-10) clone the project in the local host machine too for running recorded sound.
-11) follow instruction 8 and run $ playSound.py
+d) run $ nano send_sms_twilio.py
+e) find "to =_______  from =________" .
+    -Fill in the field with the host’s phone number and the twilio number. Save the file.
+f) run $ nano send_image_twilio.py and follow instruction e above.
+g) cd into subscriber.py, and Navigate to function setCredentials() and set HOST, VIRTUAL_HOST, NAME, PASS fields.
+h) open a terminal in the Pi and run $ subscriber.py
+i) clone the project in the local host machine too for running recorded sound.
+j) follow instruction g and run $ playSound.py
 
 The system is ready!
 
