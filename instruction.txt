@@ -46,10 +46,12 @@ Note:
 Next,
 i) Publisher: This application module includes the Raspberry Pi that is connected to the sensor.
 Instructions for running the application:
-This application requires Qt 4.8 application software to be installed either on Raspberry Pi or the Linux host machine such as Ubuntu.
+This application requires Qt 4.8 application software to be installed either on Raspberry Pi or 
+the Linux host machine such as Ubuntu.
 Method A. By installing Qt on the Raspberry Pi
 Log into the Raspberry Pi using PuTTy, or similar application.
-Follow the instructions to install Qt libraries and compiler from the web link:http://qt-project.org/wiki/RaspberryPi_Beginners_guide
+Follow the instructions to install Qt libraries and compiler from the 
+web link:http://qt-project.org/wiki/RaspberryPi_Beginners_guide
 Make a directory in the pi (example, $ mkdir MyCoolSystem)
 cd into the directory and clone the project.
     $ git clone https://github.com/mri2410/HomeGuard
@@ -62,9 +64,11 @@ $ nano getSensorData.py
 8) run $ publisher.py
 9) open another terminal and cd into HostInformation
 10) run $ qmake and $ make to generate an executable file.
-11) run $ ./HostInfoSetup to run the application - host can setup the information as necessary by following the instructions on the application window.
+11) run $ ./HostInfoSetup to run the application - host can setup the information as necessary by
+following the instructions on the application window.
 12) open another, cd into VisitorMessageBox and follow instruction 10
-13) run $ ./MessageBox to run the application - This will open an application window with a text box where visitors can type their message and send to host by hitting ‘OK’ button.
+13) run $ ./MessageBox to run the application - This will open an application window with a text box 
+where visitors can type their message and send to host by hitting ‘OK’ button.
     
 Method B. By installing Qt on the host machine (Ubuntu):
 install Qt on the host machine: $ sudo apt-get install build-essential cmake gdb qt5-qmake qttools5-dev-tools
@@ -116,7 +120,8 @@ Type message in the text box in the MessageBox window and click 'OK' button.
 Message will be delivered to email, phone or both as setup earlier.
 
 Specify Resolution:
-The webcam used in this example has a resolution of 1280 x 720 so to specify the resolution I want the image to be taken at, use the -r flag:
+The webcam used in this example has a resolution of 1280 x 720 so to specify the resolution 
+I want the image to be taken at, use the -r flag:
 fswebcam -r 1280x720 image2.jpg
 2. Command Line Image Viewer:
 $ sudo apt-get install links2
