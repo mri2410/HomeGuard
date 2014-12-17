@@ -1,7 +1,7 @@
 <p>ECE 4564 - Network Application Design,</p>
 <p>Team Immortal, Final Design Project</p>
 <p>Visitor Detection and Alert System</p>
-<p>Authors: Yihan Pang Arun Rai Mohammad Islam</p>
+<p>Authors: Yihan Pang, Mohammad Islam, and Arun Rai m</p>
 ===============================
 
 Project Overview
@@ -40,11 +40,11 @@ Required Python Library
 
 Program Step by Step Setup
 ========================
-Please see the file called instruction.txt 
+Please see instruction.txt file
 
 Troubleshooting
 ========================
-Please see the file called instruction.txt 
+Please see instruction.txt file
 
 File Manifest
 ========================
