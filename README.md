@@ -8,9 +8,9 @@ The Home Visitors Detection and Alert System is designed to detect visitors comi
 
 Hardware Requirements
 ----------------------------------
-Two Raspberyy Pi
-One HC-SRQ4 sensor
-One Logitech webcam
+Two Raspberyy Pi,
+One HC-SRQ4 sensor,
+One Logitech webcam,
 Two Wi-Fy dongles
 
 Hardware Setup
