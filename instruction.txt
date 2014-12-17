@@ -7,10 +7,14 @@ System Setup
 ================================================================================================================
 This file lists instructions on how to setup the system and run the system.
 
-One Raspberry Pi is connected with the webcam and the other one is connected with the sensor. Now, setup the WiFi communication between the Pi using the WiFy dongles. Help of setting up WiFy in a Raspberry Pi device is available online.
+One Raspberry Pi is connected with the webcam and the other one is connected with the sensor. 
+Now, setup the WiFi communication between the Pi using the WiFy dongles. 
+Help of setting up WiFy in a Raspberry Pi device is available online.
     
 The System integrates two application modules: Publisher and Subscriber
-The sytstem uses AMQP network protocol for message communication between publisher and subscriber applications. To configure AMQP on the system, RabbitMQ must be installed on the both modules.
+The sytstem uses AMQP network protocol for message communication between publisher and subscriber applications. 
+To configure AMQP on the system, RabbitMQ must be installed on the both modules.
+
 Instructions for installing RabbitMQ on the system modules:
 1. Install Pika
     sudo apt-get install python-pip
@@ -39,6 +43,7 @@ Note:
     - Login ID also has to match the “name” in step 3.
     - Routing key has to be same in both client and server side to get same output.
 
+Next,
 i) Publisher: This application module includes the Raspberry Pi that is connected to the sensor.
 Instructions for running the application:
 This application requires Qt 4.8 application software to be installed either on Raspberry Pi or the Linux host machine such as Ubuntu.
@@ -95,8 +100,22 @@ Fill in the field with the host’s phone number and the twilio number. Save the
 11) follow instruction 8 and run $ playSound.py
 
 The system is ready!
-          
-Specify Resolution
+
+Demonstration Walkthrough:
+For demonstratino purpose, sensor can be installed at an appropriate height on a wall or door. The camera should be
+installed above the sensor.
+
+Set up the host information using the HostInfoSetup application. It allows the host user to setup 
+information on how the message can be received. email, sms or both.
+
+Stand infront of the sensor within one meter range for a few second. 
+Check email or sms, a message to the link of the photo will be delivered to email, phone
+or both as setup earlier.
+
+Type message in the text box in the MessageBox window and click 'OK' button.
+Message will be delivered to email, phone or both as setup earlier.
+
+Specify Resolution:
 The webcam used in this example has a resolution of 1280 x 720 so to specify the resolution I want the image to be taken at, use the -r flag:
 fswebcam -r 1280x720 image2.jpg
 2. Command Line Image Viewer:
