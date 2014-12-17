@@ -24,18 +24,18 @@ Connect the webcam to a USB port of the other Raspberry Pi
 
 Required Python Library
 ========================
--json
--os
--pika
--pygame
--RPi
--signal
--socket
--smtplib
--sys
--threading
--time
--twilio
+json
+os
+pika
+pygame
+RPi
+signal
+socket
+smtplib
+sys
+threading
+time
+twilio
 
 Program Step by Step Setup
 ========================
