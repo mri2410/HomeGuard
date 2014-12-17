@@ -1,5 +1,7 @@
 System Setup
-===============================
+================================================================================================================
+This file lists instructions on how to setup the system and run the system.
+
 One Raspberry Pi is connected with the webcam and the other one is connected with the sensor. Now, setup the WiFi communication between the Pi using the WiFy dongles. Help of setting up WiFy in a Raspberry Pi device is available online.
     
 The System integrates two application modules: Publisher and Subscriber
