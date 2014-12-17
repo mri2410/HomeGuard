@@ -24,7 +24,7 @@ Connect the webcam to a USB port of the other Raspberry Pi
 
 Required Python Library
 ========================
-<p>json<\p>
+<p>json</p>
 os
 pika
 pygame
