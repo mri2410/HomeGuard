@@ -1,7 +1,7 @@
 <p>ECE 4564 - Network Application Design,</p>
 <p>Team Immortal, Final Design Project</p>
 <p>Visitor Detection and Alert System</p>
-<p>Authors: Yihan Pang, Mohammad Islam, and Arun Rai m</p>
+<p>Authors: Yihan Pang, Mohammad Islam, and Arun Rai </p>
 ===============================
 
 Project Overview
