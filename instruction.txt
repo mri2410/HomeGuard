@@ -1,3 +1,8 @@
+HomeGuard: Visitor Detection and Alert System
+ECE 4564 - Network Application Design,
+Team Immortal: Final Design Project, Fall 2014
+Arun Rai, Mohammad Islam, and Yihan Pang
+
 System Setup
 ================================================================================================================
 This file lists instructions on how to setup the system and run the system.
@@ -99,5 +104,5 @@ $ sudo apt-get install links2
 links2 -g <picture.jpg> 
  A window will come up with the captured picture.
  
- 
+ - Please, view README.md for system overview.
 
