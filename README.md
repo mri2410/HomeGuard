@@ -1,5 +1,6 @@
 ECE 4564 - Network Application Design,
 Team Immortal, Final Design Project
+----------------------------------
 Visitor Detection and Alert System
 ===============================
 
