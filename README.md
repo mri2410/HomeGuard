@@ -1,6 +1,6 @@
-ECE 4564 - Network Application Design,
-Team Immortal, Final Design Project
-Visitor Detection and Alert System
+<p>ECE 4564 - Network Application Design,</p>
+<p>Team Immortal, Final Design Project</p>
+<p>Visitor Detection and Alert System</p>
 ===============================
 
 Project Overview
@@ -9,18 +9,18 @@ The Home Visitors Detection and Alert System is designed to detect visitors comi
 
 Hardware Requirements
 ========================
-Two Raspberyy Pi
-One HC-SRQ4 sensor
-One Logitech webcam
-Two Wi-Fy dongles
+<p>Two Raspberyy Pi</p>
+<p>One HC-SRQ4 sensor</p>
+<p>One Logitech webcam</p>
+<p>Two Wi-Fy dongles</p>
 
 Hardware Setup
 ========================
-Sensor Setup:
-Use Wire or dupont cable to connect the HC-SR04 sensor to one raspberry’s GPIO PINs
+<p>Sensor Setup:</p>
+<p>Use Wire or dupont cable to connect the HC-SR04 sensor to one raspberry’s GPIO PINsv
 
-Camera Setup:
-Connect the webcam to a USB port of the other Raspberry Pi
+<p>Camera Setup:</p>
+<p>Connect the webcam to a USB port of the other Raspberry Pi</p>
 
 Required Python Library
 ========================
