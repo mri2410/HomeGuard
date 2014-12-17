@@ -89,5 +89,5 @@ Contacts
 Acknowledgement
 ========================
 We would like to use this opportunity to thanks Dr. William Plymale and Thaddeus Czauski for approving us to work on this project as our final team project as we learned and enhanced our knowledge on programming network applications. We also like to thank ECE Department of Virginia Tech for generously supporting us with the equipment we need for this project.  In the end, we also thanks the our entire classmates who generously help us on class forum on questions that we encountered in this project. Thanks you all and hope you all have a good winter break. 
--Yihan Evan and Arun 
+<p>-Yihan Evan and Arun</p> 
 
