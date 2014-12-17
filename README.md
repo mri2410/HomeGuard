@@ -1,6 +1,7 @@
 <p>ECE 4564 - Network Application Design,</p>
 <p>Team Immortal, Final Design Project</p>
 <p>Visitor Detection and Alert System</p>
+<p>Authors: Yihan Pang Arun Rai Mohammad Islam</p>
 ===============================
 
 Project Overview
@@ -40,6 +41,41 @@ Required Python Library
 Program Step by Step Setup
 ========================
 Please see the file called instruction.txt 
+
+Troubleshooting
+========================
+Please see the file called instruction.txt 
+
+File Manifest
+========================
+<p>Folder:</p>
+  <p>HostInformation: contains the qt application and executable HostInformation for setting the email address and sending options</p> 
+  <p>VisitorMessageBox: contains the qt application and executable VisitorMessageBox for visitor to send messages to user</p>
+  <p>snapshots>: contains the uploaded photo </p>
+<p> File:</p>
+<p>README.md: a typical read me file</p>
+<p>ThanksYou.mp3: recording played after the visitor sent the message </p>
+<p>getSensorData.py: contains the functions that the sensor uses to detect human presence </p>
+<p>getVisitorMessage.py: contains the function that get the message that the visitor wrote </p>
+<p>infoSetup.py: receive the host user infomration from the HostInformation executable</p>
+<p>instruction.txt: step by step walkthrough on how to run the program</p>
+<p>welcome.mp3:welcome message when a visitor is detected by the sensor</p>
+<p>instruction1.mp3: following message after welcome.mp3 is played</p>
+<p>playSound.py:play different sound based on the message it received from message queue</p>
+<p>publisher.py: </p>
+<p>1. Receive host user information, and send it to the subscriber.</p>
+<p>2. Receive visitors' message and send it to the subscriber.</p>
+<p>3. Receive sensor reading, and send trigger signal to camera to the subscriber.</p>
+<p>send_image_twilio.py: sends a sms of the visitor's image to the cell phone number using twilio account. </p>
+<p>send_sms_twilio.py: sends a sms of the visitor's image to the cell phone number using twilio account. </p>
+<p>setVisitorMessage.py:set the visitor entered message to be published to subscriber</p>
+<p>smsAndEmailToHost.py:sends visitor message to text or email</p>
+<p>subscriber.py:</p>
+<p>1. Receive host user information.</p>
+<p>2. Receive visitors' message.</p>
+<p>3. Receive camera trigger signal.</p>
+<p>webcame_pi.py: triggers the webcam after getting a signal from the publisher pi.</p>
+
 
 
 
